@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RusCreat / ruscreat.dev</title>
+    <meta
+      name="description"
+      content="RusCreat — Java mid, Python & C# .NET dev, senior-level vibe coder. Необычный кодовый космос и ссылки на GitHub, Discord, Telegram."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise-layer"></div>
+    <div class="scanline"></div>
+    <canvas id="stars-canvas" class="stars-canvas"></canvas>
+
+    <main class="shell">
+      <header class="shell-header">
+        <div class="logo-glitch" data-text="RusCreat">
+          <span>RusCreat</span>
+        </div>
+        <div class="shell-status">
+          <span class="dot dot-online"></span>
+          <span>status: <strong>coding</strong></span>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-left">
+          <h1>
+            <span class="h1-top">Backend&nbsp;logic</span>
+            <span class="h1-mid">×</span>
+            <span class="h1-bottom">Senior&nbsp;vibe</span>
+          </h1>
+          <p class="hero-text">18 y.o</p>
+
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-label">Java</div>
+              <div class="skill-level level-mid">mid</div>
+              <div class="skill-bar">
+                <div class="skill-fill fill-mid"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-label">Python</div>
+              <div class="skill-level level-jun">jun</div>
+              <div class="skill-bar">
+                <div class="skill-fill fill-jun"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-label">C# / .NET</div>
+              <div class="skill-level level-jun">jun</div>
+              <div class="skill-bar">
+                <div class="skill-fill fill-jun"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-label">vibe&nbsp;code</div>
+              <div class="skill-level level-senior">senior</div>
+              <div class="skill-bar">
+                <div class="skill-fill fill-senior"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="hero-right">
+          <div class="orbital">
+            <div class="planet-core"></div>
+            <div class="orbit orbit-java">
+              <span>Java</span>
+            </div>
+            <div class="orbit orbit-python">
+              <span>Python</span>
+            </div>
+            <div class="orbit orbit-dotnet">
+              <span>.NET</span>
+            </div>
+            <div class="orbit orbit-vibe">
+              <span>vibe</span>
+            </div>
+          </div>
+          <div class="floating-window">
+            <div class="window-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="window-title">session.log</span>
+            </div>
+            <div class="window-body" id="log-window">
+              <div class="log-line">booting ruscreat.dev ...</div>
+              <div class="log-line">loading cosmic modules ...</div>
+              <div class="log-line">status: ready for new projects.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="links-section">
+        <h2>Social</h2>
+        <div class="links-grid">
+          <a
+            class="link-card"
+            href="https://github.com/yurchik228336"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="link-label">GitHub</span>
+            <span class="link-value">GitHub profile</span>
+            <span class="link-hint"> репы, pet‑проекты, эксперименты </span>
+          </a>
+
+          <a
+            class="link-card"
+            href="https://t.me/RusCreat"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="link-label">Telegram</span>
+            <span class="link-value">@RusCreat</span>
+            <span class="link-hint"> связь, быстрый контакт, идеи </span>
+          </a>
+
+          <a
+            class="link-card"
+            href="https://discordapp.com/users/RusCreat"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="link-label">Discord</span>
+            <span class="link-value">RusCreat</span>
+            <span class="link-hint"> созвоны, лайв‑разбор кода </span>
+          </a>
+        </div>
+      </section>
+
+      <section class="console-section" id="console-section">
+        <div class="console-header">
+          <span class="console-title">RusCreat interactive console</span>
+          <span class="console-tag">type: help</span>
+        </div>
+        <div class="console-body" id="console-output">
+          <div>&gt; help</div>
+          <div>// команды: stack, vibe, now, clear</div>
+        </div>
+        <div class="console-input-row">
+          <span class="prompt">&gt;</span>
+          <input
+            type="text"
+            id="console-input"
+            autocomplete="off"
+            placeholder="введи команду: stack / vibe / now / clear"
+          />
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
