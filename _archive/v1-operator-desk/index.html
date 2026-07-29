@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RusCreat — Java · Security</title>
+    <meta
+      name="description"
+      content="RusCreat — Java-разработчик и исследователь внешней безопасности. Bug bounty, red team mindset, backend."
+    />
+    <meta name="theme-color" content="#0b0c0e" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <!-- hash eggs: #root #jvm #0day -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Unbounded:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip" href="#main">к содержанию</a>
+    <div class="grain" aria-hidden="true"></div>
+    <canvas id="scene" class="scene" aria-hidden="true"></canvas>
+
+    <header class="top">
+      <button type="button" class="brand" id="brand" aria-label="RusCreat">
+        <span class="brand-mark" aria-hidden="true">RC</span>
+        <span class="brand-name">RusCreat</span>
+      </button>
+      <nav class="nav" aria-label="Разделы">
+        <a href="#ops">ops</a>
+        <a href="#stack">stack</a>
+        <a href="#contact">contact</a>
+      </nav>
+      <p class="top-meta"><span class="pulse" aria-hidden="true"></span> online</p>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="brand-title">
+        <div class="hero-copy">
+          <p class="eyebrow">ruscreat.dev · operator desk</p>
+          <h1 id="brand-title" class="hero-brand">RusCreat</h1>
+          <p class="hero-line">
+            Java mid · внешняя безопасность · bug bounty mindset
+          </p>
+          <div class="cta-row">
+            <a class="cta cta-primary" href="https://t.me/RusCreat" target="_blank" rel="noopener noreferrer">написать</a>
+            <a class="cta cta-ghost" href="#ops">что делаю</a>
+          </div>
+        </div>
+        <p class="hero-hint" id="hint">logo x7 · Ctrl+` · /bin/sh</p>
+      </section>
+
+      <section class="block" id="ops">
+        <h2>Ops</h2>
+        <p class="lead">
+          Пишу на Java. Охочусь за багами на периметре: recon → гипотезы → PoC → отчёт.
+          Без театрального «хакерского» вайба — только воспроизводимые находки.
+        </p>
+        <ul class="ops-list">
+          <li>
+            <span class="ops-k">focus</span>
+            <span class="ops-v">web / API / identity fabric · IDOR · SSRF · ATO</span>
+          </li>
+          <li>
+            <span class="ops-k">method</span>
+            <span class="ops-v">карта продукта → коллизии → evidence gate</span>
+          </li>
+          <li>
+            <span class="ops-k">backend</span>
+            <span class="ops-v">Java · Spring · чистая логика · без магии</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block" id="stack">
+        <h2>Stack</h2>
+        <p class="lead">Инструменты, которыми реально пользуюсь — не бесконечный список «знаю всё».</p>
+        <div class="stack-grid">
+          <div>
+            <h3>Java</h3>
+            <p>mid · JVM, Spring, concurrency, REST, тесты. Основной язык.</p>
+          </div>
+          <div>
+            <h3>Security</h3>
+            <p>внешний recon, auth flows, API abuse, отчёты RU+EN.</p>
+          </div>
+          <div>
+            <h3>Also</h3>
+            <p>Python для скриптов · C# / .NET по задаче · Git · Linux.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="contact">
+        <h2>Contact</h2>
+        <p class="lead">Быстрый контакт — Telegram. Код — GitHub.</p>
+        <ul class="contact-list">
+          <li>
+            <a href="https://t.me/RusCreat" target="_blank" rel="noopener noreferrer">
+              <span>Telegram</span>
+              <span>@RusCreat</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/yurchik228336" target="_blank" rel="noopener noreferrer">
+              <span>GitHub</span>
+              <span>yurchik228336</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://discordapp.com/users/RusCreat" target="_blank" rel="noopener noreferrer">
+              <span>Discord</span>
+              <span>RusCreat</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <aside class="term" id="term" hidden>
+      <div class="term-bar">
+        <span>root@ruscreat:~</span>
+        <button type="button" class="term-close" id="term-close" aria-label="Закрыть">×</button>
+      </div>
+      <div class="term-out" id="term-out" role="log" aria-live="polite"></div>
+      <label class="term-in">
+        <span aria-hidden="true">$</span>
+        <input id="term-input" type="text" autocomplete="off" spellcheck="false" placeholder="help" />
+      </label>
+    </aside>
+
+    <footer class="foot">
+      <span>© <span id="year"></span> RusCreat</span>
+      <button type="button" class="foot-egg" id="open-term">/bin/sh</button>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
