@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RusCreat</title>
+    <style>
+      html, body { margin: 0; background: #0c0c0c; }
+    </style>
+    <script>
+      const map = {
+        "/work/security.html": "/work/security/",
+        "/work/schemgen.html": "/work/schemgen/",
+        "/work/kingdoms.html": "/work/kingdoms/",
+      };
+      const dest = map[location.pathname];
+      if (dest) location.replace(dest);
+    </script>
+  </head>
+  <body></body>
+</html>
