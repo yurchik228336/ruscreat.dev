@@ -4,3 +4,4 @@ dist
 *.local
 .goal
 .vite
+ru-text
