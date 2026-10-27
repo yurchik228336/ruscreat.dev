@@ -6,18 +6,17 @@ const MODEL_URL = `${import.meta.env.BASE_URL}models/laptop.glb`;
 const SCREEN_SIZE: [number, number] = [29.4, 20];
 
 const LOG_LINES = [
-  "$ scope",
-  "roles · objects · trust",
-  "account A / account B",
+  "standoff365.com/profile/RusCreat",
+  "3 accepted, 1600 pts",
+  "11 reports: 4 info, 4 duplicate",
+  "rank 451, vulns 436",
   "broken access control",
-  "effect repeats, then report",
-  "accepted · informative · duplicate",
-  "severity follows impact",
-  "kingdom invite needs confirm",
-  "collector shares hall rules",
-  "chunks follow the kingdom",
-  "$ gradle compileJava",
-  "purpur · three plugins, one model",
+  "own accounts, repeatable effect",
+  "kingdom owns the chunk list",
+  "invite waits for confirm",
+  "collector uses hall protection",
+  "chunk pdc, not a side file",
+  "schemgen.ru, in development",
 ];
 
 /** Starts the instant this chunk evaluates — overlaps with loader greetings */
@@ -60,7 +59,7 @@ function makeScreenTexture(): { texture: THREE.CanvasTexture; tick: (t: number) 
     }
     ctx.fillStyle = "#3dff7a";
     ctx.font = "600 15px ui-monospace, Consolas, monospace";
-    ctx.fillText("ruscreat@brick - zsh", 72, 23);
+    ctx.fillText("ruscreat@standoff - zsh", 72, 23);
     ctx.font = "14px ui-monospace, Consolas, monospace";
     const lineH = 26;
     const start = Math.floor(offset / lineH);

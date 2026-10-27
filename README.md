@@ -2,7 +2,7 @@
 
 Vite + Three.js. Static build for GitHub Pages.
 
-Публичный текст — AppSec и bug bounty, затем серверные системы BRICK. Старые визуальные версии лежат в `_archive/` и на сайт не выкладываются.
+Публичный текст: AppSec и профиль Standoff, свои продукты, заказы BRICK, Minecraft отдельно. Старые визуальные версии лежат в `_archive/` и на сайт не выкладываются.
 
 ## Archive
 
