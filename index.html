@@ -6,7 +6,7 @@
     <title>RusCreat · BRICK</title>
     <meta
       name="description"
-      content="RusCreat. AppSec, bug bounty на Standoff 365. 3 принятых отчёта, 1600 очков. Свои продукты и заказы BRICK отдельно."
+      content="RusCreat. Broken access control на Standoff 365: 3 принятых отчёта, 1600 очков, место 451."
     />
     <meta name="theme-color" content="#0c0c0c" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
@@ -61,7 +61,6 @@
         <button type="button" class="nav-brand" id="brand">© Code by RusCreat</button>
         <nav class="nav-links" aria-label="Разделы">
           <a href="#work">Work</a>
-          <a href="#minecraft">Minecraft</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -76,7 +75,7 @@
             <p class="eyebrow">AppSec</p>
             <p class="role">
               Broken access control.<br />
-              3 принятых отчёта.
+              Standoff 365, место 451.
             </p>
             <p class="hero-badge">
               <span class="dot"></span>
@@ -96,80 +95,40 @@
 
         <section class="intro">
           <p class="intro-text reveal">
-            Исследователь безопасности. Standoff 365 с февраля 2025:
-            1600 очков за 3 отчёта, место 451. Всего 11 отчётов:
-            3 принятых, 4 информативных, 4 дубля.
+            Профиль Standoff 365 с&nbsp;22&nbsp;февраля 2025: 1600 очков за&nbsp;3 принятых отчёта, место 451.
+            Ещё 4 информативных и&nbsp;4 дубля.
+            В&nbsp;отчёте остаётся повторяемый доступ к&nbsp;чужому объекту или роли.
           </p>
           <a class="about-link reveal magnetic" href="https://standoff365.com/profile/RusCreat/" target="_blank" rel="noopener noreferrer">Профиль Standoff</a>
         </section>
 
         <section class="work" id="work">
-          <p class="section-label reveal">Исследования</p>
           <ul class="work-list" id="work-list">
             <li class="work-item reveal">
               <a class="work-link" href="./work/security.html" data-index="0">
                 <span class="work-title">Security</span>
-                <span class="work-meta">Standoff 365, 3 принятых, 1600 очков</span>
+                <span class="work-meta">Standoff 365, 1600 очков</span>
               </a>
             </li>
-          </ul>
-        </section>
-
-        <section class="band" id="products">
-          <p class="section-label reveal">Свои продукты</p>
-          <ul class="work-list">
             <li class="work-item reveal">
               <a class="work-link" href="./work/schemgen.html">
                 <span class="work-title">Schemgen</span>
-                <span class="work-meta">Схема участка с карты. В разработке</span>
+                <span class="work-meta">свой сервис, .vsdx и .dxf</span>
+              </a>
+            </li>
+            <li class="work-item reveal">
+              <a class="work-link" href="https://t.me/brickstu" target="_blank" rel="noopener noreferrer">
+                <span class="work-title">BRICK</span>
+                <span class="work-meta">заказы, серверы Minecraft</span>
+              </a>
+            </li>
+            <li class="work-item reveal" id="minecraft">
+              <a class="work-link" href="./work/kingdoms.html">
+                <span class="work-title">Kingdoms</span>
+                <span class="work-meta">Minecraft, один список чанков</span>
               </a>
             </li>
           </ul>
-        </section>
-
-        <section class="band" id="orders">
-          <p class="section-label reveal">Заказы</p>
-          <h2 class="reveal">BRICK</h2>
-          <p class="reveal">
-            Студия серверов Minecraft. Заказ на плагин, связку систем и сдачу на сервере.
-          </p>
-          <div class="link-rows reveal">
-            <a href="https://t.me/brickstudio_support" target="_blank" rel="noopener noreferrer">заказ/@brickstudio_support</a>
-            <a href="https://t.me/brickstu" target="_blank" rel="noopener noreferrer">telegram/@brickstu</a>
-            <a href="https://vk.com/brickst" target="_blank" rel="noopener noreferrer">vk/brickst</a>
-          </div>
-        </section>
-
-        <section class="band" id="minecraft">
-          <p class="section-label reveal">Minecraft</p>
-          <h2 class="reveal">Три плагина, один источник прав</h2>
-          <p class="reveal">
-            Отдельная линия, не AppSec. Королевства, расы и ресурсы чанков на Purpur.
-            Список чанков хранит королевство. Ресурсы вторую карту не ведут.
-          </p>
-          <p class="reveal">
-            <a class="about-link" href="./work/kingdoms.html">Разбор архитектуры</a>
-          </p>
-        </section>
-
-        <section class="about" id="about">
-          <div class="about-grid">
-            <h2 class="reveal">About</h2>
-            <div class="about-copy">
-              <p class="reveal">
-                RusCreat. Отчёты по broken access control на Standoff 365 и BugBounty.ru.
-                В зачёт идет повторяемый эффект на объекте или роли.
-                Информативный отчёт и дубль считаю отдельно.
-              </p>
-              <p class="reveal">
-                СхемГен: свой сервис, участок карты в лист для Visio и AutoCAD.
-                Minecraft и заказы на него идут через BRICK, отдельным блоком.
-              </p>
-              <p class="reveal">
-                <a href="https://standoff365.com/profile/RusCreat/" target="_blank" rel="noopener noreferrer">standoff365.com/profile/RusCreat</a>
-              </p>
-            </div>
-          </div>
         </section>
 
         <section class="contact" id="contact">
@@ -178,7 +137,9 @@
           </h2>
           <div class="contact-rows reveal">
             <a class="magnetic" href="https://t.me/RusCreat" target="_blank" rel="noopener noreferrer">telegram/@RusCreat</a>
+            <a class="magnetic" href="https://t.me/brickstudio_support" target="_blank" rel="noopener noreferrer">заказ/@brickstudio_support</a>
             <a class="magnetic" href="https://t.me/brickstu" target="_blank" rel="noopener noreferrer">telegram/@brickstu</a>
+            <a class="magnetic" href="https://vk.com/brickst" target="_blank" rel="noopener noreferrer">vk/brickst</a>
             <a class="magnetic" href="https://standoff365.com/profile/RusCreat/" target="_blank" rel="noopener noreferrer">standoff/RusCreat</a>
             <a class="magnetic" href="https://github.com/yurchik228336" target="_blank" rel="noopener noreferrer">github/yurchik228336</a>
             <a class="magnetic" href="https://discordapp.com/users/RusCreat" target="_blank" rel="noopener noreferrer">discord/RusCreat</a>

@@ -89,12 +89,14 @@ const wireWorkHover = () => {
   };
 
   links.forEach((link) => {
+    const hasPreview = link.dataset.index !== undefined;
     const index = Number(link.dataset.index ?? 0);
 
     link.addEventListener("pointerenter", () => {
       list.classList.add("is-hovering");
       link.parentElement?.classList.add("is-active");
       cursor?.classList.add("is-view", "is-grow");
+      if (!hasPreview) return;
       gsap.to(floatInner, {
         y: -index * previewH,
         duration: 0.55,

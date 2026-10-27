@@ -7,16 +7,14 @@ const SCREEN_SIZE: [number, number] = [29.4, 20];
 
 const LOG_LINES = [
   "standoff365.com/profile/RusCreat",
-  "3 accepted, 1600 pts",
-  "11 reports: 4 info, 4 duplicate",
-  "rank 451, vulns 436",
-  "broken access control",
-  "own accounts, repeatable effect",
+  "rank 451, 1600 pts",
+  "3 accepted, broken access control",
+  "schemgen.ru, vsdx and dxf",
   "kingdom owns the chunk list",
-  "invite waits for confirm",
-  "collector uses hall protection",
-  "chunk pdc, not a side file",
-  "schemgen.ru, in development",
+  "confirm before rights change",
+  "collector shares hall protection",
+  "chunk pdc survives restart",
+  "one folder loads the server",
 ];
 
 /** Starts the instant this chunk evaluates — overlaps with loader greetings */

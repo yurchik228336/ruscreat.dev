@@ -53,10 +53,10 @@ export function createTerminal(): TermApi {
         HELP.forEach((l) => print(l, "muted"));
         break;
       case "whoami":
-        print("RusCreat | AppSec | 3 accepted, 1600 pts", "ok");
+        print("RusCreat | AppSec | rank 451, 1600 pts", "ok");
         break;
       case "work":
-        print("security, schemgen, brick, minecraft");
+        print("security, schemgen, brick, kingdoms");
         break;
       case "security":
         print("standoff365.com/profile/RusCreat");
