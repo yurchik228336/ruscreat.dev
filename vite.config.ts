@@ -7,13 +7,15 @@ function preloadLaptopChunk(): Plugin {
     transformIndexHtml: {
       order: "post",
       handler(html, ctx) {
-        if (!ctx.bundle || !ctx.filename?.endsWith("index.html")) return html;
+        const page = (ctx.filename ?? "").replace(/\\/g, "/");
+        const isRootIndex = page === "index.html" || page.endsWith("/index.html") && !page.includes("/work/");
+        if (!ctx.bundle || !isRootIndex) return html;
         const tags: string[] = [];
         for (const file of Object.keys(ctx.bundle)) {
           if (!file.endsWith(".js")) continue;
           if (!/laptop|three/i.test(file)) continue;
           tags.push(
-            `<link rel="modulepreload" crossorigin media="(min-width: 861px)" href="./${file}">`,
+            `<link rel="modulepreload" crossorigin media="(min-width: 861px)" href="/${file}">`,
           );
         }
         if (!tags.length) return html;
@@ -24,7 +26,7 @@ function preloadLaptopChunk(): Plugin {
 }
 
 export default defineConfig({
-  base: "./",
+  base: "/",
   plugins: [preloadLaptopChunk()],
   build: {
     target: "es2022",
@@ -39,9 +41,6 @@ export default defineConfig({
         brick: "work/brick/index.html",
         kingdoms: "work/kingdoms/index.html",
         lessons: "work/lessons.html",
-        kingdomsRedirect: "work/kingdoms.html",
-        schemgenRedirect: "work/schemgen.html",
-        securityRedirect: "work/security.html",
         hunt: "work/hunt.html",
         java: "work/java.html",
         ops: "work/ops.html",
