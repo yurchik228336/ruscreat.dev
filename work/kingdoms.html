@@ -6,7 +6,7 @@
     <title>Kingdoms · RusCreat</title>
     <meta
       name="description"
-      content="Серверные системы Minecraft: королевства, расы и ресурсы чанков. Владение и доступ проверялись на Purpur."
+      content="Архитектура трёх плагинов Minecraft: королевства как источник чанков, расы, ресурсы. Отдельно от AppSec."
     />
     <meta name="theme-color" content="#0c0c0c" />
     <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
@@ -16,9 +16,9 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@500&family=Noto+Sans+JP:wght@500&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="../assets/ui-C3LPbE4W.js"></script>
-    <script type="module" crossorigin src="../assets/work-Cebyp_wC.js"></script>
-    <link rel="stylesheet" crossorigin href="../assets/ui-Cv-_1cev.css">
+    <script type="module" crossorigin src="../assets/ui-8KOlklKJ.js"></script>
+    <script type="module" crossorigin src="../assets/work-5vDo5Zc0.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/ui-pHzpn8uP.css">
   </head>
   <body class="is-loading case-page">
     <div class="loading-container" id="loader" aria-hidden="true">
@@ -41,7 +41,7 @@
         <a class="nav-brand" id="brand" href="../index.html">© Code by RusCreat</a>
         <nav class="nav-links" aria-label="Разделы">
           <a href="../index.html#work">Work</a>
-          <a href="../index.html#about">About</a>
+          <a href="../index.html#minecraft">Minecraft</a>
           <a href="../index.html#contact">Contact</a>
         </nav>
       </header>
@@ -51,53 +51,52 @@
 
         <div class="case-meta once-in">
           <div>
-            <p class="case-label">Задача</p>
-            <p>Владение и доступ</p>
+            <p class="case-label">Решение</p>
+            <p>Один источник прав</p>
           </div>
           <div>
             <p class="case-label">Стек</p>
-            <p>Java · Purpur · PDC</p>
+            <p>Java, Purpur, PDC</p>
           </div>
           <div>
-            <p class="case-label">Статус</p>
-            <p>Проверялось на сервере</p>
+            <p class="case-label">Где стояло</p>
+            <p>Живой сервер</p>
           </div>
-        </div>
-
-        <div class="case-visual preview-ops once-in" aria-hidden="true">
-          <span>Kingdom</span><span>Race</span><span>Chunks</span>
         </div>
 
         <section class="case-body">
           <p class="reveal">
-            Три плагина на одном Purpur: королевства, расы и ресурсы чанков, плюс
-            карта границ. Это одна модель владения, а не набор отдельных команд.
-            На сервер заходили и другие игроки.
+            Три плагина и карта границ. Королевства, расы, ресурсы чанков.
+            Общий источник прав, не три отдельных списка.
           </p>
           <p class="reveal">
-            Королевство держит территорию, состав и ратушу. Войти и забрать главу
-            можно только после подтверждения. Коллектор закрыт той же защитой, что
-            ратуша. Два игрока в одном меню коллектора не должны удваивать ресурс:
-            это общее состояние, и его я проверял вживую.
+            Королевство владеет территорией, составом и ратушей. Список чанков
+            лежит здесь. Ресурсы читают этот список и восстанавливаются только
+            в чанках с коллектором. Второй карты нет.
           </p>
           <p class="reveal">
-            Расы — отдельная система атрибутов. Они зависят друг от друга и меняют
-            бой. Меню собрано по фиксированной сетке, активны только слоты предметов.
+            Приглашение и передача главы ждут подтверждения. Права сразу не выдаются.
+            Коллектор закрыт той же защитой, что ратуша. Два игрока в одном меню
+            коллектора делят одно состояние: ресурс от этого не двоится.
+            Так проверил на сервере, где были и другие игроки.
           </p>
           <p class="reveal">
-            Ресурсы живут в данных чанка и восстанавливаются там, где стоит коллектор.
-            Какие чанки принадлежат королевству, говорит плагин королевств. Свой
-            список ресурсов не ведёт.
+            Расы вынесены в свой плагин. Атрибуты зависят друг от друга и меняют бой.
+            Меню 256 на 256. Клик только по слоту с предметом.
           </p>
           <p class="reveal">
-            Правила этих границ задавал я. Код, события и обмен между плагинами
-            собирались с AI-агентом. Исходники приватные.
+            Состояние, которое должно пережить рестарт, выбрал в PDC чанка.
+            Файл для этого не годится: после рестарта объект отрывался от мира.
+          </p>
+          <p class="reveal">
+            Загрузчик плагинов оставил одной папкой. Грузится то, что папка умеет.
+            Отдельный реестр разрешенных плагинов убрал.
           </p>
         </section>
 
-        <a class="case-next reveal" href="./schemgen.html">
+        <a class="case-next reveal" href="./security.html">
           <span class="case-next-label">Next</span>
-          <span class="case-next-title">Schemgen</span>
+          <span class="case-next-title">Security</span>
         </a>
       </main>
 
