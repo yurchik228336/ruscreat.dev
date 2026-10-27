@@ -5,10 +5,7 @@ type TermApi = {
   print: (line: string, cls?: string) => void;
 };
 
-const HELP = [
-  "commands: help · whoami · stack · hunt · java · idor · clear · sudo · eggs",
-  "hint: logo×7 · Ctrl+` · ↑↑↓↓←→←→BA · #root",
-];
+const HELP = ["cmds: help whoami hunt java clear eggs", "this is a quiet shell under the portfolio"];
 
 export function createTerminal(): TermApi {
   const panel = document.getElementById("term");
@@ -17,14 +14,14 @@ export function createTerminal(): TermApi {
   const closeBtn = document.getElementById("term-close");
   const openBtn = document.getElementById("open-term");
 
-  if (!panel || !out || !input) {
-    return {
-      open: () => undefined,
-      close: () => undefined,
-      toggle: () => undefined,
-      print: () => undefined,
-    };
-  }
+  const api: TermApi = {
+    open: () => undefined,
+    close: () => undefined,
+    toggle: () => undefined,
+    print: () => undefined,
+  };
+
+  if (!panel || !out || !input) return api;
 
   const print = (line: string, cls = "") => {
     const row = document.createElement("div");
@@ -38,11 +35,9 @@ export function createTerminal(): TermApi {
     panel.hidden = false;
     input.focus();
   };
-
   const close = () => {
     panel.hidden = true;
   };
-
   const toggle = () => {
     if (panel.hidden) open();
     else close();
@@ -52,51 +47,33 @@ export function createTerminal(): TermApi {
     const cmd = raw.trim().toLowerCase();
     if (!cmd) return;
     print(`$ ${raw}`, "muted");
-
     switch (cmd) {
       case "help":
       case "?":
         HELP.forEach((l) => print(l, "muted"));
         break;
       case "whoami":
-        print("RusCreat — Java mid · external security researcher", "ok");
-        break;
-      case "stack":
-        print("java=mid; spring; python=scripts; csharp=.net-as-needed;");
+        print("RusCreat | java mid | perimeter hunter", "ok");
         break;
       case "hunt":
-        print("recon → product map → collision hyp → evidence → report");
-        print("platforms: BI.ZONE · Standoff · H1 · Bugcrowd", "muted");
+        print("map > collision > evidence > report");
         break;
       case "java":
-        print("System.out.println(\"still shipping\");");
-        print("// mid, но с сеньорским упрямством", "muted");
+        print("spring · jvm · no magic");
         break;
-      case "sudo":
-        print("permission denied: you are already root on this desk", "ok");
-        break;
-      case "konami":
       case "eggs":
-        print("logo×7 · Ctrl+` · konami · #root|#jvm|#0day", "muted");
-        break;
-      case "idor":
-        print("if (userId != session.userId) throw new AccessDenied();");
-        print("// проверь horizontal + vertical · не только UUID", "muted");
-        break;
-      case "ssrf":
-        print("fetch(userUrl) // ← don't. allowlist hosts, block link-local.");
+        print("logo x7 · ctrl+` · konami · #root", "muted");
         break;
       case "clear":
         out.innerHTML = "";
-        print("session cleared", "muted");
+        print("cleared", "muted");
         break;
       case "exit":
       case "q":
         close();
         break;
       default:
-        print(`command not found: ${cmd}`, "muted");
-        print("try: help", "muted");
+        print(`not found: ${cmd}`, "muted");
     }
   };
 
@@ -111,8 +88,11 @@ export function createTerminal(): TermApi {
 
   closeBtn?.addEventListener("click", close);
   openBtn?.addEventListener("click", open);
+  print("quiet shell. type help", "muted");
 
-  print("ruscreat.dev shell — type help", "muted");
-
-  return { open, close, toggle, print };
+  api.open = open;
+  api.close = close;
+  api.toggle = toggle;
+  api.print = print;
+  return api;
 }

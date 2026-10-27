@@ -3,138 +3,209 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RusCreat — Java · Security</title>
+    <title>RusCreat</title>
     <meta
       name="description"
-      content="RusCreat — Java-разработчик и исследователь внешней безопасности. Bug bounty, red team mindset, backend."
+      content="RusCreat. Java-разработчик и исследование безопасности внешнего периметра."
     />
-    <meta name="theme-color" content="#0b0c0e" />
+    <meta name="theme-color" content="#0c0c0c" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <!-- hash eggs: #root #jvm #0day -->
+    <link
+      rel="preload"
+      href="./models/laptop.glb"
+      as="fetch"
+      type="model/gltf-binary"
+      crossorigin
+      media="(min-width: 861px)"
+    />
+    <script>
+      // Warm GLB cache on desktop only — mobile never mounts the 3D hero
+      if (matchMedia("(min-width: 861px)").matches) {
+        fetch("./models/laptop.glb", { credentials: "same-origin" }).catch(() => {});
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Unbounded:wght@500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@500&family=Noto+Sans+JP:wght@500&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body>
-    <a class="skip" href="#main">к содержанию</a>
-    <div class="grain" aria-hidden="true"></div>
-    <canvas id="scene" class="scene" aria-hidden="true"></canvas>
+  <body class="is-loading">
+    <div class="loading-container" id="loader" aria-hidden="true">
+      <div class="loading-screen" id="loader-screen">
+        <div class="rounded-div-wrap top" id="loader-curve-top">
+          <div class="rounded-div"></div>
+        </div>
+        <div class="loading-words" id="loader-greet"></div>
+        <div class="rounded-div-wrap bottom" id="loader-curve-bot">
+          <div class="rounded-div"></div>
+        </div>
+      </div>
+    </div>
 
-    <header class="top">
-      <button type="button" class="brand" id="brand" aria-label="RusCreat">
-        <span class="brand-mark" aria-hidden="true">RC</span>
-        <span class="brand-name">RusCreat</span>
-      </button>
-      <nav class="nav" aria-label="Разделы">
-        <a href="#ops">ops</a>
-        <a href="#stack">stack</a>
-        <a href="#contact">contact</a>
-      </nav>
-      <p class="top-meta"><span class="pulse" aria-hidden="true"></span> online</p>
-    </header>
+    <div class="cursor" id="cursor" aria-hidden="true">
+      <span class="cursor-label">View</span>
+    </div>
 
-    <main id="main">
-      <section class="hero" aria-labelledby="brand-title">
-        <div class="hero-copy">
-          <p class="eyebrow">ruscreat.dev · operator desk</p>
-          <h1 id="brand-title" class="hero-brand">RusCreat</h1>
-          <p class="hero-line">
-            Java mid · внешняя безопасность · bug bounty mindset
+    <div class="work-float" id="work-float" aria-hidden="true">
+      <div class="work-float-inner" id="work-float-inner">
+        <div class="preview preview-hunt" data-preview="0">
+          <span>IDOR</span><span>SSRF</span><span>ATO</span>
+        </div>
+        <div class="preview preview-java" data-preview="1">
+          <span>Spring</span><span>JVM</span><span>REST</span>
+        </div>
+        <div class="preview preview-ops" data-preview="2">
+          <span>Recon</span><span>Map</span><span>Gate</span>
+        </div>
+        <div class="preview preview-reports" data-preview="3">
+          <span>RU</span><span>EN</span><span>Impact</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="page">
+      <header class="nav">
+        <button type="button" class="nav-brand" id="brand">© Code by RusCreat</button>
+        <nav class="nav-links" aria-label="Разделы">
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-portrait once-in" aria-hidden="true">
+            <canvas id="laptop" class="hero-laptop"></canvas>
+          </div>
+
+          <div class="hero-side once-in">
+            <p class="eyebrow">Java · AppSec</p>
+            <p class="role">
+              Пишу backend на Java.<br />
+              Ищу баги на внешнем контуре.
+            </p>
+            <p class="hero-badge">
+              <span class="dot"></span>
+              Open to collab
+            </p>
+          </div>
+
+          <div class="marquee" aria-hidden="true">
+            <div class="marquee-track" id="marquee">
+              <span>RusCreat -</span>
+              <span>RusCreat -</span>
+              <span>RusCreat -</span>
+              <span>RusCreat -</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="intro">
+          <p class="intro-text reveal">
+            Разрабатываю backend на Java и ищу уязвимости во внешних системах.
+            От карты продукта и гипотезы до воспроизводимого PoC и понятного отчёта.
           </p>
-          <div class="cta-row">
-            <a class="cta cta-primary" href="https://t.me/RusCreat" target="_blank" rel="noopener noreferrer">написать</a>
-            <a class="cta cta-ghost" href="#ops">что делаю</a>
+          <a class="about-link reveal magnetic" href="#about">Обо мне</a>
+        </section>
+
+        <section class="work" id="work">
+          <p class="section-label reveal">Направления</p>
+          <ul class="work-list" id="work-list">
+            <li class="work-item reveal">
+              <a class="work-link" href="./work/hunt.html" data-index="0">
+                <span class="work-title">Hunt</span>
+                <span class="work-meta">Внешний периметр · IDOR / SSRF / ATO</span>
+              </a>
+            </li>
+            <li class="work-item reveal">
+              <a class="work-link" href="./work/java.html" data-index="1">
+                <span class="work-title">Java</span>
+                <span class="work-meta">Spring · REST · тесты</span>
+              </a>
+            </li>
+            <li class="work-item reveal">
+              <a class="work-link" href="./work/ops.html" data-index="2">
+                <span class="work-title">Ops</span>
+                <span class="work-meta">Разведка · карта продукта · проверка</span>
+              </a>
+            </li>
+            <li class="work-item reveal">
+              <a class="work-link" href="./work/reports.html" data-index="3">
+                <span class="work-title">Reports</span>
+                <span class="work-meta">Отчёты RU / EN · impact</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="about" id="about">
+          <div class="about-grid">
+            <h2 class="reveal">About</h2>
+            <div class="about-copy">
+              <p class="reveal">
+                Меня зовут RusCreat. Пишу backend на Java и занимаюсь поиском уязвимостей
+                на внешнем контуре: web, API, identity.
+              </p>
+              <p class="reveal">
+                Рабочий процесс простой: понять роли и границы доверия, сформулировать
+                гипотезу, подтвердить PoC и описать влияние так, чтобы это было полезно
+                и инженеру, и бизнесу.
+              </p>
+              <p class="reveal">
+                Стек: Java, Spring, Python для вспомогательных скриптов, C# / .NET по задаче,
+                Linux, Git.
+              </p>
+            </div>
           </div>
+        </section>
+
+        <section class="contact" id="contact">
+          <h2 class="contact-title reveal">
+            <span>Связаться</span>
+          </h2>
+          <div class="contact-rows reveal">
+            <a class="magnetic" href="https://t.me/RusCreat" target="_blank" rel="noopener noreferrer">telegram/@RusCreat</a>
+            <a class="magnetic" href="https://github.com/yurchik228336" target="_blank" rel="noopener noreferrer">github/yurchik228336</a>
+            <a class="magnetic" href="https://discordapp.com/users/RusCreat" target="_blank" rel="noopener noreferrer">discord/RusCreat</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="foot">
+        <div>
+          <p class="foot-label">Version</p>
+          <p><span id="year"></span> © Edition</p>
         </div>
-        <p class="hero-hint" id="hint">logo x7 · Ctrl+` · /bin/sh</p>
-      </section>
-
-      <section class="block" id="ops">
-        <h2>Ops</h2>
-        <p class="lead">
-          Пишу на Java. Охочусь за багами на периметре: recon → гипотезы → PoC → отчёт.
-          Без театрального «хакерского» вайба — только воспроизводимые находки.
-        </p>
-        <ul class="ops-list">
-          <li>
-            <span class="ops-k">focus</span>
-            <span class="ops-v">web / API / identity fabric · IDOR · SSRF · ATO</span>
-          </li>
-          <li>
-            <span class="ops-k">method</span>
-            <span class="ops-v">карта продукта → коллизии → evidence gate</span>
-          </li>
-          <li>
-            <span class="ops-k">backend</span>
-            <span class="ops-v">Java · Spring · чистая логика · без магии</span>
-          </li>
-        </ul>
-      </section>
-
-      <section class="block" id="stack">
-        <h2>Stack</h2>
-        <p class="lead">Инструменты, которыми реально пользуюсь — не бесконечный список «знаю всё».</p>
-        <div class="stack-grid">
-          <div>
-            <h3>Java</h3>
-            <p>mid · JVM, Spring, concurrency, REST, тесты. Основной язык.</p>
-          </div>
-          <div>
-            <h3>Security</h3>
-            <p>внешний recon, auth flows, API abuse, отчёты RU+EN.</p>
-          </div>
-          <div>
-            <h3>Also</h3>
-            <p>Python для скриптов · C# / .NET по задаче · Git · Linux.</p>
-          </div>
+        <div>
+          <p class="foot-label">Local time</p>
+          <p id="clock">--:--</p>
         </div>
-      </section>
-
-      <section class="block" id="contact">
-        <h2>Contact</h2>
-        <p class="lead">Быстрый контакт — Telegram. Код — GitHub.</p>
-        <ul class="contact-list">
-          <li>
-            <a href="https://t.me/RusCreat" target="_blank" rel="noopener noreferrer">
-              <span>Telegram</span>
-              <span>@RusCreat</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/yurchik228336" target="_blank" rel="noopener noreferrer">
-              <span>GitHub</span>
-              <span>yurchik228336</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://discordapp.com/users/RusCreat" target="_blank" rel="noopener noreferrer">
-              <span>Discord</span>
-              <span>RusCreat</span>
-            </a>
-          </li>
-        </ul>
-      </section>
-    </main>
+        <div>
+          <p class="foot-label">Socials</p>
+          <p class="foot-socials">
+            <a href="https://t.me/RusCreat" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://github.com/yurchik228336" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <button type="button" id="open-term">sh</button>
+          </p>
+        </div>
+        <p class="egg-hint" id="hint">logo x7 · ctrl+`</p>
+      </footer>
+    </div>
 
     <aside class="term" id="term" hidden>
       <div class="term-bar">
-        <span>root@ruscreat:~</span>
-        <button type="button" class="term-close" id="term-close" aria-label="Закрыть">×</button>
+        <span>sh</span>
+        <button type="button" id="term-close" aria-label="Закрыть">x</button>
       </div>
       <div class="term-out" id="term-out" role="log" aria-live="polite"></div>
       <label class="term-in">
-        <span aria-hidden="true">$</span>
+        <span>$</span>
         <input id="term-input" type="text" autocomplete="off" spellcheck="false" placeholder="help" />
       </label>
     </aside>
-
-    <footer class="foot">
-      <span>© <span id="year"></span> RusCreat</span>
-      <button type="button" class="foot-egg" id="open-term">/bin/sh</button>
-    </footer>
 
     <script type="module" src="/src/main.ts"></script>
   </body>

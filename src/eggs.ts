@@ -1,9 +1,6 @@
-import type { createScene } from "./scene";
-import { setEggPalette } from "./scene";
 import type { createTerminal } from "./terminal";
 
 type Term = ReturnType<typeof createTerminal>;
-type SceneHandle = ReturnType<typeof createScene>;
 
 const KONAMI = [
   "ArrowUp",
@@ -18,7 +15,7 @@ const KONAMI = [
   "a",
 ];
 
-export function wireEasterEggs(term: Term, scene: SceneHandle | null): void {
+export function wireEasterEggs(term: Term): void {
   const brand = document.getElementById("brand");
   const hint = document.getElementById("hint");
   let clicks = 0;
@@ -28,14 +25,10 @@ export function wireEasterEggs(term: Term, scene: SceneHandle | null): void {
 
   const unlock = (reason: string) => {
     egg = !egg;
-    setEggPalette(egg, scene ?? undefined);
+    document.body.classList.toggle("is-egg", egg);
     term.open();
-    term.print(egg ? `signal unlocked via ${reason}` : "signal restored", "ok");
-    if (hint) {
-      hint.textContent = egg
-        ? "signal mode · /bin/sh open"
-        : "click logo · or Ctrl+`";
-    }
+    term.print(egg ? `signal on via ${reason}` : "signal off", "ok");
+    if (hint) hint.textContent = egg ? "signal mode" : "logo x7 · ctrl+`";
   };
 
   brand?.addEventListener("click", () => {
@@ -44,7 +37,6 @@ export function wireEasterEggs(term: Term, scene: SceneHandle | null): void {
     clickTimer = window.setTimeout(() => {
       clicks = 0;
     }, 1600);
-
     if (clicks >= 7) {
       clicks = 0;
       unlock("logo x7");
@@ -52,20 +44,15 @@ export function wireEasterEggs(term: Term, scene: SceneHandle | null): void {
   });
 
   window.addEventListener("keydown", (e) => {
-    if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
-      return;
-    }
-
+    if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
     if ((e.ctrlKey || e.metaKey) && e.key === "`") {
       e.preventDefault();
       term.toggle();
       return;
     }
-
     const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
     seq.push(key);
     if (seq.length > KONAMI.length) seq = seq.slice(-KONAMI.length);
-
     if (seq.length === KONAMI.length && seq.every((k, i) => k === KONAMI[i])) {
       seq = [];
       unlock("konami");
@@ -83,8 +70,8 @@ export function wireEasterEggs(term: Term, scene: SceneHandle | null): void {
   window.addEventListener("hashchange", applyHash);
 
   console.log(
-    "%cRusCreat%c · /bin/sh · logo x7 · konami · #root",
-    "color:#e4572e;font-weight:700;font-family:monospace",
-    "color:#8a8680;font-family:monospace",
+    "%cRusCreat%c · logo x7 · ctrl+`",
+    "color:#ececec;font-weight:700",
+    "color:#8a8a8a",
   );
 }

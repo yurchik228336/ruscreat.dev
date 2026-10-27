@@ -1,6 +1,10 @@
-# RusCreat — ruscreat.dev
+# RusCreat | ruscreat.dev
 
-Personal site: Java + external security. Vite + Three.js. Static build for GitHub Pages.
+Vite + Three.js. Static build for GitHub Pages.
+
+## Archive
+
+v1 (operator desk) saved in `_archive/v1-operator-desk/` and git branch/commit history.
 
 ## Dev
 
@@ -15,11 +19,7 @@ npm run dev
 npm run build
 ```
 
-`dist/` is ready for GitHub Pages. `base: "./"` so it works for project pages and custom domains.
+`dist/` deploys to GitHub Pages. `base: "./"` works for project pages and custom domains.
 
-### Deploy options
-
-1. **Actions** — push `main`, workflow publishes `dist`.
-2. **CLI** — `npm run deploy` (uses `gh-pages` → branch `gh-pages`).
-
-Custom domain: add `CNAME` in `public/` with your domain, then set DNS.
+1. Actions: push `main`, workflow publishes `dist`.
+2. CLI: `npm run deploy`.

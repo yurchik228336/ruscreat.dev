@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RusCreat</title>
+    <meta name="description" content="RusCreat. Ищу щель в периметре. Java. PoC." />
+    <meta name="theme-color" content="#0c0d10" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <canvas id="scene" class="scene" aria-hidden="true"></canvas>
+
+    <button type="button" class="brand-hit" id="brand" aria-label="RusCreat">RC</button>
+
+    <div class="legend">
+      <p class="legend-k">символ</p>
+      <p class="legend-v" id="legend">кольцо = периметр · щель = баг · ядро = то, что за стеной</p>
+    </div>
+
+    <div class="hud">
+      <span id="hud-align">align 0%</span>
+      <button type="button" id="open-term" class="hud-sh">sh</button>
+    </div>
+
+    <article class="plate" id="main">
+      <p class="kicker">ruscreat.dev</p>
+      <h1>RusCreat</h1>
+      <p class="line">Ищу щель в периметре.</p>
+      <p class="body">
+        Java mid. Spring. Внешний контур: recon, карта, коллизия, evidence, отчёт.
+        Пока щель не светится, это ещё не баг.
+      </p>
+      <p class="hint-play" id="hint">наведи луч на щель · клик = PoC</p>
+      <p class="links">
+        <a href="https://t.me/RusCreat" target="_blank" rel="noopener noreferrer">telegram</a>
+        <a href="https://github.com/yurchik228336" target="_blank" rel="noopener noreferrer">github</a>
+        <a href="https://discordapp.com/users/RusCreat" target="_blank" rel="noopener noreferrer">discord</a>
+      </p>
+      <p class="fine">© <span id="year"></span> · logo x7 · ctrl+`</p>
+    </article>
+
+    <aside class="term" id="term" hidden>
+      <div class="term-bar">
+        <span>sh</span>
+        <button type="button" id="term-close" aria-label="Закрыть">x</button>
+      </div>
+      <div class="term-out" id="term-out" role="log" aria-live="polite"></div>
+      <label class="term-in">
+        <span>$</span>
+        <input id="term-input" type="text" autocomplete="off" spellcheck="false" placeholder="help" />
+      </label>
+    </aside>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

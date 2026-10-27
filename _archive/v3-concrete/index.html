@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RusCreat | Java + Security</title>
+    <meta
+      name="description"
+      content="RusCreat. Java mid. Внешняя безопасность и bug bounty. Backend без магии."
+    />
+    <meta name="theme-color" content="#d5d7db" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip" href="#main">к содержанию</a>
+    <div class="slab-bg" aria-hidden="true"></div>
+    <canvas id="scene" class="scene" aria-hidden="true"></canvas>
+
+    <div class="wrap">
+      <header class="top">
+        <button type="button" class="mark" id="brand" aria-label="RusCreat">
+          <b>RC</b>
+          <span>RusCreat</span>
+        </button>
+        <nav aria-label="Разделы">
+          <a href="#work">work</a>
+          <a href="#stack">stack</a>
+          <a href="#ping">ping</a>
+        </nav>
+        <p class="stamp">java · security</p>
+      </header>
+
+      <main id="main">
+        <section class="hero">
+          <div class="hero-text">
+            <p class="tag">ruscreat.dev</p>
+            <h1>RusCreat</h1>
+            <p class="lede">
+              Java mid. Внешний периметр. Баги с PoC, не с теориями.
+            </p>
+            <div class="row">
+              <a class="btn fill" href="https://t.me/RusCreat" target="_blank" rel="noopener noreferrer">telegram</a>
+              <a class="btn ghost" href="#work">work</a>
+            </div>
+            <p class="hint" id="hint">logo x7 · ctrl+` · /bin/sh</p>
+          </div>
+        </section>
+
+        <section class="panel" id="work">
+          <h2>Work</h2>
+          <p class="note">
+            Пишу на Java. Охочусь на периметре: recon, карта продукта, гипотезы, evidence, отчёт.
+          </p>
+          <ul class="steps">
+            <li><span>01</span>Web / API / identity. IDOR, SSRF, ATO.</li>
+            <li><span>02</span>Сначала продукт, потом коллизии. Без PoC не зову багом.</li>
+            <li><span>03</span>Backend на Spring. Логика жёсткая, магии нет.</li>
+          </ul>
+        </section>
+
+        <section class="panel" id="stack">
+          <h2>Stack</h2>
+          <div class="cols">
+            <article>
+              <h3>Java</h3>
+              <p>mid. JVM, Spring, concurrency, REST, тесты. Основной язык.</p>
+            </article>
+            <article>
+              <h3>Security</h3>
+              <p>Внешний recon, auth flows, API abuse. Отчёты RU и EN.</p>
+            </article>
+            <article>
+              <h3>Also</h3>
+              <p>Python для скриптов. C# / .NET по задаче. Git. Linux.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel" id="ping">
+          <h2>Ping</h2>
+          <ul class="links">
+            <li>
+              <a href="https://t.me/RusCreat" target="_blank" rel="noopener noreferrer">
+                <span>Telegram</span><em>@RusCreat</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/yurchik228336" target="_blank" rel="noopener noreferrer">
+                <span>GitHub</span><em>yurchik228336</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://discordapp.com/users/RusCreat" target="_blank" rel="noopener noreferrer">
+                <span>Discord</span><em>RusCreat</em>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <footer class="top foot">
+        <span>© <span id="year"></span> RusCreat</span>
+        <button type="button" id="open-term">/bin/sh</button>
+      </footer>
+    </div>
+
+    <aside class="term" id="term" hidden>
+      <div class="term-bar">
+        <span>root@ruscreat</span>
+        <button type="button" id="term-close" aria-label="Закрыть">x</button>
+      </div>
+      <div class="term-out" id="term-out" role="log" aria-live="polite"></div>
+      <label class="term-in">
+        <span>$</span>
+        <input id="term-input" type="text" autocomplete="off" spellcheck="false" placeholder="help" />
+      </label>
+    </aside>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

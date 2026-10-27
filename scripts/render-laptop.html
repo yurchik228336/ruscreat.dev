@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Laptop offline render</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #000;
+        overflow: hidden;
+      }
+      canvas {
+        display: block;
+        width: 1280px;
+        height: 1280px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="c" width="1280" height="1280"></canvas>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../node_modules/three/build/three.module.js",
+          "three/addons/": "../node_modules/three/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module">
+      import * as THREE from "three";
+      import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+      import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
+      import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+
+      const LOG_LINES = [
+        "$ nmap -sV target.scope",
+        "open 443/tcp https Syn-Ack",
+        "GET /api/v1/users/1 200",
+        "Authorization: Bearer eyJ***",
+        "IDOR? uid=1 → uid=2",
+        "leak: email, role, phone",
+        "SSRF → 169.254.169.254",
+        "IMDSv1 token: AKIA***",
+        "ATO: reset → steal cookie",
+        "PoC replay OK · HIGH",
+        "$ java -jar hunt.jar",
+        "Spring Security filter?",
+        "trust boundary mismatch",
+        "curl -i -H 'Cookie: ...' ",
+        "report packed · RU/EN",
+      ];
+
+      const canvas = document.getElementById("c");
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+        alpha: true,
+        preserveDrawingBuffer: true,
+        powerPreference: "high-performance",
+      });
+      renderer.setPixelRatio(1);
+      renderer.setSize(1280, 1280, false);
+      renderer.setClearColor(0x000000, 0);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 0.85;
+
+      const pmrem = new THREE.PMREMGenerator(renderer);
+      const env = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+      const scene = new THREE.Scene();
+      scene.environment = env;
+      scene.environmentIntensity = 0.55;
+
+      const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+      camera.position.set(0, 2.4, 8.5);
+      camera.lookAt(0, 0.2, 0);
+
+      scene.add(new THREE.AmbientLight(0xffffff, 0.15));
+      const key = new THREE.DirectionalLight(0xfff2e0, 1.1);
+      key.position.set(5, 8, 4);
+      scene.add(key);
+      const fill = new THREE.DirectionalLight(0x7a8899, 0.35);
+      fill.position.set(-6, 2, 2);
+      scene.add(fill);
+      const rim = new THREE.DirectionalLight(0x3dff7a, 0.25);
+      rim.position.set(-2, 3, -5);
+      scene.add(rim);
+
+      // soft ground shadow plate
+      const shadow = new THREE.Mesh(
+        new THREE.CircleGeometry(3.2, 64),
+        new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.35 }),
+      );
+      shadow.rotation.x = -Math.PI / 2;
+      shadow.position.y = -0.95;
+      scene.add(shadow);
+
+      const screenCanvas = document.createElement("canvas");
+      screenCanvas.width = 1024;
+      screenCanvas.height = 640;
+      const sctx = screenCanvas.getContext("2d");
+      const screenMap = new THREE.CanvasTexture(screenCanvas);
+      screenMap.colorSpace = THREE.SRGBColorSpace;
+      screenMap.flipY = false;
+
+      function paintScreen(t) {
+        const offset = (t * 34) % (LOG_LINES.length * 28);
+        sctx.fillStyle = "#020503";
+        sctx.fillRect(0, 0, 1024, 640);
+        sctx.fillStyle = "#07140a";
+        sctx.fillRect(0, 0, 1024, 44);
+        for (const [x, c] of [
+          [22, "#ff5f57"],
+          [44, "#febc2e"],
+          [66, "#28c840"],
+        ]) {
+          sctx.fillStyle = c;
+          sctx.beginPath();
+          sctx.arc(x, 22, 6, 0, Math.PI * 2);
+          sctx.fill();
+        }
+        sctx.fillStyle = "#3dff7a";
+        sctx.font = "600 18px ui-monospace, Consolas, monospace";
+        sctx.fillText("ruscreat@perimeter — zsh", 88, 28);
+        sctx.font = "17px ui-monospace, Consolas, monospace";
+        const lineH = 28;
+        const start = Math.floor(offset / lineH);
+        const yShift = -(offset % lineH);
+        for (let i = 0; i < 20; i++) {
+          const line = LOG_LINES[(start + i) % LOG_LINES.length];
+          sctx.fillStyle = i % 4 === 0 ? "#9dffc4" : "#2fdc78";
+          sctx.fillText(`› ${line}`, 20, 70 + i * lineH + yShift);
+        }
+        screenMap.needsUpdate = true;
+      }
+
+      const bodyMat = new THREE.MeshPhysicalMaterial({
+        color: 0x14161a,
+        metalness: 0.92,
+        roughness: 0.32,
+        clearcoat: 0.4,
+        clearcoatRoughness: 0.4,
+        envMapIntensity: 0.7,
+      });
+      const darkMat = new THREE.MeshStandardMaterial({
+        color: 0x050505,
+        metalness: 0.4,
+        roughness: 0.7,
+      });
+      const logoMat = new THREE.MeshStandardMaterial({
+        color: 0x3a3f46,
+        metalness: 0.95,
+        roughness: 0.25,
+      });
+      const screenMat = new THREE.MeshStandardMaterial({
+        map: screenMap,
+        emissiveMap: screenMap,
+        emissive: new THREE.Color(0x14ff66),
+        emissiveIntensity: 0.85,
+        side: THREE.BackSide,
+      });
+
+      const pivot = new THREE.Group();
+      scene.add(pivot);
+
+      const loader = new GLTFLoader();
+      loader.setMeshoptDecoder(MeshoptDecoder);
+
+      const modelUrl = new URL("../public/models/laptop.glb", import.meta.url).href;
+      const gltf = await new Promise((resolve, reject) => {
+        loader.load(modelUrl, resolve, undefined, reject);
+      });
+
+      const lidGroup = new THREE.Group();
+      const bottomGroup = new THREE.Group();
+      pivot.add(lidGroup, bottomGroup);
+
+      for (const child of [...gltf.scene.children]) {
+        if (child.name === "_top") {
+          lidGroup.add(child);
+          for (const mesh of child.children) {
+            if (!(mesh instanceof THREE.Mesh)) continue;
+            if (mesh.name === "lid") mesh.material = bodyMat;
+            else if (mesh.name === "logo") mesh.material = logoMat;
+            else if (mesh.name === "screen-frame") mesh.material = darkMat;
+            else mesh.material = darkMat;
+          }
+        } else if (child.name === "_bottom") {
+          bottomGroup.add(child);
+          for (const mesh of child.children) {
+            if (!(mesh instanceof THREE.Mesh)) continue;
+            if (mesh.name === "base") mesh.material = bodyMat;
+            else mesh.material = darkMat;
+          }
+        }
+      }
+
+      const screen = new THREE.Mesh(new THREE.PlaneGeometry(29.4, 20), screenMat);
+      screen.position.set(0, 10.5, -0.11);
+      screen.rotation.set(Math.PI, 0, 0);
+      lidGroup.add(screen);
+
+      const keysTex = await new Promise((resolve, reject) => {
+        new THREE.TextureLoader().load(
+          new URL("./keyboard-overlay.png", import.meta.url).href,
+          (tex) => {
+            tex.colorSpace = THREE.SRGBColorSpace;
+            resolve(tex);
+          },
+          undefined,
+          reject,
+        );
+      }).catch(() => null);
+
+      const keys = new THREE.Mesh(
+        new THREE.PlaneGeometry(27.7, 11.6),
+        keysTex
+          ? new THREE.MeshBasicMaterial({
+              color: 0xffffff,
+              alphaMap: keysTex,
+              transparent: true,
+              opacity: 0.75,
+            })
+          : new THREE.MeshStandardMaterial({ color: 0x1a1d22, roughness: 0.85 }),
+      );
+      keys.rotation.set(-0.5 * Math.PI, 0, 0);
+      keys.position.set(0, 0.05, 7.21);
+      bottomGroup.add(keys);
+
+      lidGroup.rotation.x = -0.2 * Math.PI;
+
+      const box = new THREE.Box3().setFromObject(pivot);
+      const size = box.getSize(new THREE.Vector3());
+      const center = box.getCenter(new THREE.Vector3());
+      pivot.position.sub(center);
+      pivot.scale.setScalar(3.4 / Math.max(size.x, size.y, size.z));
+      pivot.position.set(0.35, 0, 0);
+
+      const DURATION = 4;
+      const FPS = 30;
+
+      function sample(t) {
+        const u = t / DURATION;
+        paintScreen(t);
+        pivot.rotation.y = Math.sin(u * Math.PI * 2) * 0.35 - 0.15;
+        pivot.rotation.x = 0.1 + Math.sin(u * Math.PI * 2) * 0.04;
+        pivot.position.y = Math.sin(u * Math.PI * 2) * 0.06;
+        renderer.render(scene, camera);
+      }
+
+      // First frame poster
+      sample(0);
+      window.__READY__ = true;
+      window.__DURATION__ = DURATION;
+      window.__FPS__ = FPS;
+      window.__FRAME_COUNT__ = DURATION * FPS;
+      window.__sample__ = sample;
+      window.__canvas__ = canvas;
+
+      window.__recordWebm__ = async () => {
+        const stream = canvas.captureStream(FPS);
+        const mime = MediaRecorder.isTypeSupported("video/webm;codecs=vp9")
+          ? "video/webm;codecs=vp9"
+          : "video/webm";
+        const rec = new MediaRecorder(stream, {
+          mimeType: mime,
+          videoBitsPerSecond: 6_000_000,
+        });
+        const chunks = [];
+        rec.ondataavailable = (e) => {
+          if (e.data.size) chunks.push(e.data);
+        };
+
+        const total = window.__FRAME_COUNT__;
+        let i = 0;
+        const done = new Promise((resolve) => {
+          rec.onstop = () => resolve();
+        });
+        rec.start(50);
+
+        await new Promise((resolve) => {
+          const tick = () => {
+            const t = (i / FPS) % DURATION;
+            sample(t);
+            i += 1;
+            if (i >= total) {
+              resolve();
+              return;
+            }
+            requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+
+        // let encoder flush a couple frames
+        await new Promise((r) => setTimeout(r, 120));
+        rec.stop();
+        await done;
+        const blob = new Blob(chunks, { type: "video/webm" });
+        return new Uint8Array(await blob.arrayBuffer());
+      };
+
+      window.__posterPng__ = () => {
+        sample(0.6);
+        const data = canvas.toDataURL("image/png");
+        const b64 = data.split(",")[1];
+        const bin = atob(b64);
+        const out = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+        return out;
+      };
+    </script>
+  </body>
+</html>

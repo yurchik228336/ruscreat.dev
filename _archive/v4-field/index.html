@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RusCreat</title>
+    <meta name="description" content="RusCreat. Java. Внешний периметр. PoC first." />
+    <meta name="theme-color" content="#090a0c" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="boot" class="boot" aria-hidden="true">
+      <p>ruscreat.dev</p>
+      <p class="boot-sub">click shock · hold pull · wasd · m mode</p>
+    </div>
+
+    <canvas id="scene" class="scene" aria-hidden="true"></canvas>
+    <div id="cursor-ring" class="cursor-ring" aria-hidden="true"></div>
+
+    <button type="button" class="brand-hit" id="brand" aria-label="RusCreat">RC</button>
+
+    <p class="spine" aria-hidden="true">RUSCREAT · JAVA · PERIMETER · PoC</p>
+
+    <div class="hud">
+      <span id="hud-y">y 0.00</span>
+      <span id="hud-mode">magnet</span>
+      <button type="button" id="open-term" class="hud-sh">sh</button>
+    </div>
+
+    <article class="dossier" id="main">
+      <h1>RusCreat</h1>
+      <p class="big">
+        Живое поле.<br />
+        Трогай.
+      </p>
+      <p>
+        Java mid. Spring. Внешний периметр: recon, карта продукта, коллизии, evidence, отчёт.
+        IDOR. SSRF. ATO. Без PoC не зову багом.
+      </p>
+      <p>
+        Клик = удар. Зажать = магнит. Space = boom. M = режим. WASD = нырок.
+      </p>
+      <p class="links">
+        <a href="https://t.me/RusCreat" target="_blank" rel="noopener noreferrer">telegram/@RusCreat</a>
+        <a href="https://github.com/yurchik228336" target="_blank" rel="noopener noreferrer">github/yurchik228336</a>
+        <a href="https://discordapp.com/users/RusCreat" target="_blank" rel="noopener noreferrer">discord/RusCreat</a>
+      </p>
+      <p class="fine" id="hint">logo x7 · ctrl+` · #root</p>
+      <p class="fine">© <span id="year"></span></p>
+    </article>
+
+    <aside class="term" id="term" hidden>
+      <div class="term-bar">
+        <span>sh</span>
+        <button type="button" id="term-close" aria-label="Закрыть">x</button>
+      </div>
+      <div class="term-out" id="term-out" role="log" aria-live="polite"></div>
+      <label class="term-in">
+        <span>$</span>
+        <input id="term-input" type="text" autocomplete="off" spellcheck="false" placeholder="help" />
+      </label>
+    </aside>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
