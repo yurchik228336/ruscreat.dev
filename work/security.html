@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security · RusCreat</title>
+    <meta
+      name="description"
+      content="Участие RusCreat в bug bounty на Standoff 365 и BugBounty.ru: скоуп, триаж, без закрытых отчётов и сумм."
+    />
+    <meta name="theme-color" content="#0c0c0c" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@500&family=Noto+Sans+JP:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="../assets/ui-CPGc5twX.js"></script>
+    <script type="module" crossorigin src="../assets/work-QRNAJaRc.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/ui-Cv-_1cev.css">
+  </head>
+  <body class="is-loading case-page">
+    <div class="loading-container" id="loader" aria-hidden="true">
+      <div class="loading-screen" id="loader-screen">
+        <div class="rounded-div-wrap top" id="loader-curve-top">
+          <div class="rounded-div"></div>
+        </div>
+        <div class="rounded-div-wrap bottom" id="loader-curve-bot">
+          <div class="rounded-div"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cursor" id="cursor" aria-hidden="true">
+      <span class="cursor-label">View</span>
+    </div>
+
+    <div id="page">
+      <header class="nav">
+        <a class="nav-brand" id="brand" href="../index.html">© Code by RusCreat</a>
+        <nav class="nav-links" aria-label="Разделы">
+          <a href="../index.html#work">Work</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main class="case">
+        <h1 class="case-title once-in"><span>Security</span></h1>
+
+        <div class="case-meta once-in">
+          <div>
+            <p class="case-label">Формат</p>
+            <p>Bug bounty</p>
+          </div>
+          <div>
+            <p class="case-label">Площадки</p>
+            <p>Standoff 365 · BugBounty.ru</p>
+          </div>
+          <div>
+            <p class="case-label">Ник</p>
+            <p>RusCreat</p>
+          </div>
+        </div>
+
+        <div class="case-visual preview-hunt once-in" aria-hidden="true">
+          <span>Scope</span><span>Triage</span><span>Report</span>
+        </div>
+
+        <section class="case-body">
+          <p class="reveal">
+            Я участвую в программах bug bounty и разбираю, есть ли у находки реальное
+            влияние. На странице — способ работы. Число отчётов и суммы добавлю после
+            сверки профиля и правил раскрытия программы.
+          </p>
+          <p class="reveal">
+            Площадки: Standoff 365 и BugBounty.ru, ник RusCreat. В задачу я приношу
+            правила программы и держу проверку внутри скоупа. Дубликат, информативный
+            отчёт и принятый отчёт для меня разные статусы.
+          </p>
+          <p class="reveal">
+            Поиск и черновик отчёта чаще всего идут вместе с AI-агентом. Я правлю тон,
+            если текст давит на выплату, и останавливаю шаг за пределами скоупа.
+            Детали программ остаются у площадки.
+          </p>
+        </section>
+
+        <a class="case-next reveal" href="./lessons.html">
+          <span class="case-next-label">Next</span>
+          <span class="case-next-title">Lessons</span>
+        </a>
+      </main>
+
+      <footer class="foot">
+        <div>
+          <p class="foot-label">Version</p>
+          <p><span id="year"></span> © Edition</p>
+        </div>
+        <div>
+          <p class="foot-label">Local time</p>
+          <p id="clock">--:--</p>
+        </div>
+        <div>
+          <p class="foot-label">Socials</p>
+          <p class="foot-socials">
+            <a href="https://t.me/RusCreat" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://github.com/yurchik228336" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <button type="button" id="open-term">sh</button>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <aside class="term" id="term" hidden>
+      <div class="term-bar">
+        <span>sh</span>
+        <button type="button" id="term-close" aria-label="Закрыть">x</button>
+      </div>
+      <div class="term-out" id="term-out" role="log" aria-live="polite"></div>
+      <label class="term-in">
+        <span>$</span>
+        <input id="term-input" type="text" autocomplete="off" spellcheck="false" placeholder="help" />
+      </label>
+    </aside>
+
+  </body>
+</html>
