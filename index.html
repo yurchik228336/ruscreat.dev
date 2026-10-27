@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RusCreat</title>
+    <title>RusCreat · BRICK</title>
     <meta
       name="description"
-      content="RusCreat. Java-разработчик и исследование безопасности внешнего периметра."
+      content="RusCreat, студия BRICK. Игровые системы Minecraft на Java: учебные уроки, королевства, плагины. Участие в bug bounty без закрытых отчётов."
     />
     <meta name="theme-color" content="#0c0c0c" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
@@ -50,17 +50,17 @@
 
     <div class="work-float" id="work-float" aria-hidden="true">
       <div class="work-float-inner" id="work-float-inner">
-        <div class="preview preview-hunt" data-preview="0">
-          <span>IDOR</span><span>SSRF</span><span>ATO</span>
+        <div class="preview preview-java" data-preview="0">
+          <span>Purpur</span><span>NPC</span><span>Typewriter</span>
         </div>
-        <div class="preview preview-java" data-preview="1">
-          <span>Spring</span><span>JVM</span><span>REST</span>
+        <div class="preview preview-ops" data-preview="1">
+          <span>Town</span><span>PDC</span><span>Race</span>
         </div>
-        <div class="preview preview-ops" data-preview="2">
-          <span>Recon</span><span>Map</span><span>Gate</span>
+        <div class="preview preview-reports" data-preview="2">
+          <span>OSM</span><span>VSDX</span><span>DXF</span>
         </div>
-        <div class="preview preview-reports" data-preview="3">
-          <span>RU</span><span>EN</span><span>Impact</span>
+        <div class="preview preview-hunt" data-preview="3">
+          <span>Scope</span><span>Triage</span><span>Report</span>
         </div>
       </div>
     </div>
@@ -82,14 +82,14 @@
           </div>
 
           <div class="hero-side once-in">
-            <p class="eyebrow">Java · AppSec</p>
+            <p class="eyebrow">BRICK · Minecraft</p>
             <p class="role">
-              Пишу backend на Java.<br />
-              Ищу баги на внешнем контуре.
+              Собираю игровые системы<br />
+              для серверов Minecraft.
             </p>
             <p class="hero-badge">
               <span class="dot"></span>
-              Open to collab
+              Беру заказы и работу
             </p>
           </div>
 
@@ -105,40 +105,89 @@
 
         <section class="intro">
           <p class="intro-text reveal">
-            Разрабатываю backend на Java и ищу уязвимости во внешних системах.
-            От карты продукта и гипотезы до воспроизводимого PoC и понятного отчёта.
+            Делаю плагины и моды, которые можно пройти в живом мире: учебный урок,
+            королевство, ресурсы, меню. Правила и краевые случаи задаю сам, сборку
+            проверяю на сервере. Реализацию на Java веду вместе с AI-агентами.
           </p>
           <a class="about-link reveal magnetic" href="#about">Обо мне</a>
         </section>
 
         <section class="work" id="work">
-          <p class="section-label reveal">Направления</p>
+          <p class="section-label reveal">Проекты</p>
           <ul class="work-list" id="work-list">
             <li class="work-item reveal">
-              <a class="work-link" href="./work/hunt.html" data-index="0">
-                <span class="work-title">Hunt</span>
-                <span class="work-meta">Внешний периметр · IDOR / SSRF / ATO</span>
+              <a class="work-link" href="./work/lessons.html" data-index="0">
+                <span class="work-title">Lessons</span>
+                <span class="work-meta">Учебные миры · Purpur · Typewriter</span>
               </a>
             </li>
             <li class="work-item reveal">
-              <a class="work-link" href="./work/java.html" data-index="1">
-                <span class="work-title">Java</span>
-                <span class="work-meta">Spring · REST · тесты</span>
+              <a class="work-link" href="./work/kingdoms.html" data-index="1">
+                <span class="work-title">Kingdoms</span>
+                <span class="work-meta">Королевства, расы, ресурсы чанков</span>
               </a>
             </li>
             <li class="work-item reveal">
-              <a class="work-link" href="./work/ops.html" data-index="2">
-                <span class="work-title">Ops</span>
-                <span class="work-meta">Разведка · карта продукта · проверка</span>
+              <a class="work-link" href="./work/schemgen.html" data-index="2">
+                <span class="work-title">Schemgen</span>
+                <span class="work-meta">Схема участка · сайт в разработке</span>
               </a>
             </li>
             <li class="work-item reveal">
-              <a class="work-link" href="./work/reports.html" data-index="3">
-                <span class="work-title">Reports</span>
-                <span class="work-meta">Отчёты RU / EN · impact</span>
+              <a class="work-link" href="./work/security.html" data-index="3">
+                <span class="work-title">Security</span>
+                <span class="work-meta">Bug bounty · скоуп и триаж</span>
               </a>
             </li>
           </ul>
+        </section>
+
+        <section class="band" id="practice">
+          <h2 class="reveal">Minecraft</h2>
+          <p class="reveal">
+            Ниже три поломки, которые я заметил в игре сам. Строку с причиной в коде
+            после этого находил разбор, не я.
+          </p>
+          <ul class="plain-list">
+            <li class="reveal">
+              <h3>Счётчик овец</h3>
+              <p>
+                После каждой овцы квест показывал 1/1, затем 2/2: будто он уже завершён.
+                Симптом я описал с сервера. Причину в чтении счётчика нашёл разбор кода.
+              </p>
+            </li>
+            <li class="reveal">
+              <h3>Вагонетки на границе чанка</h3>
+              <p>
+                Вагонетки пропадали только при переезде между чанками. Диспенсер я проверил
+                отдельно: лимит был на чанк, а не на весь мир.
+              </p>
+            </li>
+            <li class="reveal">
+              <h3>Динамит после рестарта</h3>
+              <p>
+                Кастомный динамит становился обычным. Хранение в файле я отклонил:
+                данные должны лежать в Persistent Data Container чанка.
+              </p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="band" id="brick">
+          <h2 class="reveal">BRICK</h2>
+          <p class="reveal">
+            BRICK — моя студия серверов Minecraft. Заказ и вопросы по серверу идут
+            через каналы ниже.
+          </p>
+          <p class="reveal">
+            Беру задачи на игровую систему: плагин, мод, урок, меню, связка с другим
+            плагином. Объём и срок — в переписке.
+          </p>
+          <div class="link-rows reveal">
+            <a href="https://t.me/brickstu" target="_blank" rel="noopener noreferrer">telegram/@brickstu</a>
+            <a href="https://t.me/brickstudio_support" target="_blank" rel="noopener noreferrer">заказ/@brickstudio_support</a>
+            <a href="https://vk.com/brickst" target="_blank" rel="noopener noreferrer">vk/brickst</a>
+          </div>
         </section>
 
         <section class="about" id="about">
@@ -146,17 +195,19 @@
             <h2 class="reveal">About</h2>
             <div class="about-copy">
               <p class="reveal">
-                Меня зовут RusCreat. Пишу backend на Java и занимаюсь поиском уязвимостей
-                на внешнем контуре: web, API, identity.
+                Меня зовут RusCreat. Собираю игровые системы на Java для Paper, Purpur
+                и Fabric и довожу их до состояния, которое можно проверить в мире.
               </p>
               <p class="reveal">
-                Рабочий процесс простой: понять роли и границы доверия, сформулировать
-                гипотезу, подтвердить PoC и описать влияние так, чтобы это было полезно
-                и инженеру, и бизнесу.
+                Код плагинов и модов я веду вместе с AI-агентами. Моя часть — правило,
+                крайний случай и приёмка на сервере.
               </p>
               <p class="reveal">
-                Стек: Java, Spring, Python для вспомогательных скриптов, C# / .NET по задаче,
-                Linux, Git.
+                На серверах стояли Java, Paper/Purpur API, Fabric, Gradle, Maven,
+                Typewriter и Git.
+              </p>
+              <p class="reveal">
+                Параллельно участвую в bug bounty на Standoff 365 и BugBounty.ru.
               </p>
             </div>
           </div>
@@ -168,6 +219,7 @@
           </h2>
           <div class="contact-rows reveal">
             <a class="magnetic" href="https://t.me/RusCreat" target="_blank" rel="noopener noreferrer">telegram/@RusCreat</a>
+            <a class="magnetic" href="https://t.me/brickstu" target="_blank" rel="noopener noreferrer">telegram/@brickstu</a>
             <a class="magnetic" href="https://github.com/yurchik228336" target="_blank" rel="noopener noreferrer">github/yurchik228336</a>
             <a class="magnetic" href="https://discordapp.com/users/RusCreat" target="_blank" rel="noopener noreferrer">discord/RusCreat</a>
           </div>

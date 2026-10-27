@@ -34,6 +34,10 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: "index.html",
+        lessons: "work/lessons.html",
+        kingdoms: "work/kingdoms.html",
+        schemgen: "work/schemgen.html",
+        security: "work/security.html",
         hunt: "work/hunt.html",
         java: "work/java.html",
         ops: "work/ops.html",

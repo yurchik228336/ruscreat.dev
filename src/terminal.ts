@@ -5,7 +5,7 @@ type TermApi = {
   print: (line: string, cls?: string) => void;
 };
 
-const HELP = ["cmds: help whoami hunt java clear eggs", "this is a quiet shell under the portfolio"];
+const HELP = ["cmds: help whoami work security clear eggs", "quiet shell under the portfolio"];
 
 export function createTerminal(): TermApi {
   const panel = document.getElementById("term");
@@ -53,13 +53,13 @@ export function createTerminal(): TermApi {
         HELP.forEach((l) => print(l, "muted"));
         break;
       case "whoami":
-        print("RusCreat | java mid | perimeter hunter", "ok");
+        print("RusCreat | BRICK | minecraft systems", "ok");
         break;
-      case "hunt":
-        print("map > collision > evidence > report");
+      case "work":
+        print("lessons · kingdoms · schemgen");
         break;
-      case "java":
-        print("spring · jvm · no magic");
+      case "security":
+        print("scope · triage · no closed reports");
         break;
       case "eggs":
         print("logo x7 · ctrl+` · konami · #root", "muted");

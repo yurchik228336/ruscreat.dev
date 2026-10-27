@@ -2,6 +2,8 @@
 
 Vite + Three.js. Static build for GitHub Pages.
 
+Публичный текст — портфолио BRICK: игровые системы Minecraft, СхемГен и участие в bug bounty. Старые визуальные версии лежат в `_archive/` и на сайт не выкладываются.
+
 ## Archive
 
 v1 (operator desk) saved in `_archive/v1-operator-desk/` and git branch/commit history.

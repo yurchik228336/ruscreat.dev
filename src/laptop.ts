@@ -6,21 +6,20 @@ const MODEL_URL = `${import.meta.env.BASE_URL}models/laptop.glb`;
 const SCREEN_SIZE: [number, number] = [29.4, 20];
 
 const LOG_LINES = [
-  "$ nmap -sV target.scope",
-  "open 443/tcp https Syn-Ack",
-  "GET /api/v1/users/1 200",
-  "Authorization: Bearer eyJ***",
-  "IDOR? uid=1 -> uid=2",
-  "leak: email, role, phone",
-  "SSRF -> 169.254.169.254",
-  "IMDSv1 token: AKIA***",
-  "ATO: reset -> steal cookie",
-  "PoC replay OK · HIGH",
-  "$ java -jar hunt.jar",
-  "Spring Security filter?",
-  "trust boundary mismatch",
-  "curl -i -H 'Cookie: ...' ",
-  "report packed · RU/EN",
+  "$ brick status",
+  "purpur 1.21 · lesson unit",
+  "pause = same dialogue",
+  "reset clears furniture",
+  "typewriter · staging first",
+  "dynamite lost after restart",
+  "store in chunk pdc",
+  "two players, one collector",
+  "minecarts · chunk edge",
+  "sheep counter 1/1, 2/2",
+  "$ gradle compileJava",
+  "schemgen.ru · in progress",
+  "bounty · scope, then triage",
+  "no closed reports here",
 ];
 
 /** Starts the instant this chunk evaluates — overlaps with loader greetings */
@@ -63,7 +62,7 @@ function makeScreenTexture(): { texture: THREE.CanvasTexture; tick: (t: number) 
     }
     ctx.fillStyle = "#3dff7a";
     ctx.font = "600 15px ui-monospace, Consolas, monospace";
-    ctx.fillText("ruscreat@perimeter - zsh", 72, 23);
+    ctx.fillText("ruscreat@brick - zsh", 72, 23);
     ctx.font = "14px ui-monospace, Consolas, monospace";
     const lineH = 26;
     const start = Math.floor(offset / lineH);

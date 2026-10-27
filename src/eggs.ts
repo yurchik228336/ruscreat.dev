@@ -61,7 +61,7 @@ export function wireEasterEggs(term: Term): void {
 
   const applyHash = () => {
     const h = location.hash.toLowerCase();
-    if (h === "#root" || h === "#jvm" || h === "#0day") {
+    if (h === "#root" || h === "#jvm" || h === "#brick") {
       if (!egg) unlock(`hash ${h}`);
       history.replaceState(null, "", `${location.pathname}${location.search}`);
     }
