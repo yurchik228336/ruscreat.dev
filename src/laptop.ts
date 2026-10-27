@@ -6,20 +6,18 @@ const MODEL_URL = `${import.meta.env.BASE_URL}models/laptop.glb`;
 const SCREEN_SIZE: [number, number] = [29.4, 20];
 
 const LOG_LINES = [
-  "$ brick status",
-  "purpur 1.21 · lesson unit",
-  "pause = same dialogue",
-  "reset clears furniture",
-  "typewriter · staging first",
-  "dynamite lost after restart",
-  "store in chunk pdc",
-  "two players, one collector",
-  "minecarts · chunk edge",
-  "sheep counter 1/1, 2/2",
+  "$ scope",
+  "roles · objects · trust",
+  "account A / account B",
+  "broken access control",
+  "effect repeats, then report",
+  "accepted · informative · duplicate",
+  "severity follows impact",
+  "kingdom invite needs confirm",
+  "collector shares hall rules",
+  "chunks follow the kingdom",
   "$ gradle compileJava",
-  "schemgen.ru · in progress",
-  "bounty · scope, then triage",
-  "no closed reports here",
+  "purpur · three plugins, one model",
 ];
 
 /** Starts the instant this chunk evaluates — overlaps with loader greetings */

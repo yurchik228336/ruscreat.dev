@@ -2,7 +2,7 @@
 
 Vite + Three.js. Static build for GitHub Pages.
 
-Публичный текст — портфолио BRICK: игровые системы Minecraft, СхемГен и участие в bug bounty. Старые визуальные версии лежат в `_archive/` и на сайт не выкладываются.
+Публичный текст — AppSec и bug bounty, затем серверные системы BRICK. Старые визуальные версии лежат в `_archive/` и на сайт не выкладываются.
 
 ## Archive
 

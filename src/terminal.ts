@@ -53,13 +53,13 @@ export function createTerminal(): TermApi {
         HELP.forEach((l) => print(l, "muted"));
         break;
       case "whoami":
-        print("RusCreat | BRICK | minecraft systems", "ok");
+        print("RusCreat | AppSec | access control", "ok");
         break;
       case "work":
-        print("lessons · kingdoms · schemgen");
+        print("security · kingdoms · schemgen");
         break;
       case "security":
-        print("scope · triage · no closed reports");
+        print("BAC · scope · own accounts · triage");
         break;
       case "eggs":
         print("logo x7 · ctrl+` · konami · #root", "muted");
