@@ -7,7 +7,7 @@ const SCREEN_SIZE: [number, number] = [29.4, 20];
 
 const LOG_LINES = [
   "standoff365.com/profile/RusCreat",
-  "rank 451, 1600 pts",
+  "vulns 436, 1600 pts",
   "3 accepted, broken access control",
   "schemgen.ru, vsdx and dxf",
   "kingdom owns the chunk list",
