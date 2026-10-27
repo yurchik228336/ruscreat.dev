@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kingdoms · RusCreat</title>
+    <meta
+      name="description"
+      content="Сервер королевств на Purpur: земля и ресурсы из одного списка чанков, состояние в PDC."
+    />
+    <link rel="canonical" href="https://ruscreat.dev/work/kingdoms/" />
+    <meta name="theme-color" content="#0c0c0c" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@500&family=Noto+Sans+JP:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="is-loading case-page">
+    <div class="loading-container" id="loader" aria-hidden="true">
+      <div class="loading-screen" id="loader-screen">
+        <div class="rounded-div-wrap top" id="loader-curve-top">
+          <div class="rounded-div"></div>
+        </div>
+        <div class="rounded-div-wrap bottom" id="loader-curve-bot">
+          <div class="rounded-div"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cursor" id="cursor" aria-hidden="true">
+      <span class="cursor-label">View</span>
+    </div>
+
+    <div id="page">
+      <header class="nav">
+        <a class="nav-brand" id="brand" href="../../">© Code by RusCreat</a>
+        <nav class="nav-links" aria-label="Разделы">
+          <a href="../../#work">Work</a>
+          <a href="../../#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main class="case">
+        <h1 class="case-title once-in"><span>Kingdoms</span></h1>
+
+        <div class="case-meta once-in">
+          <div>
+            <p class="case-label">Сервер</p>
+            <p>Королевства на Purpur</p>
+          </div>
+          <div>
+            <p class="case-label">Земля</p>
+            <p>Один список чанков</p>
+          </div>
+          <div>
+            <p class="case-label">Данные</p>
+            <p>PDC чанка</p>
+          </div>
+        </div>
+
+        <section class="case-body">
+          <p class="reveal">
+            Сервер королевств. Земля, состав и&nbsp;ратуша принадлежат королевству.
+            Список чанков тоже его: ресурс возвращается только в&nbsp;чанке, где стоит коллектор.
+          </p>
+          <p class="reveal">
+            Вход в&nbsp;королевство и&nbsp;передача главы включаются после подтверждения второй стороны.
+            Коллектор закрыт той же защитой, что ратуша. Расы отдельно от&nbsp;земли:
+            их атрибуты связаны и&nbsp;меняют бой.
+          </p>
+          <p class="reveal">
+            Состояние, которое должно остаться после рестарта, записано в&nbsp;PDC чанка, на&nbsp;самом мире.
+            Плагины сервер читает из&nbsp;одной папки.
+          </p>
+        </section>
+
+        <a class="case-next reveal" href="../security/">
+          <span class="case-next-label">Next</span>
+          <span class="case-next-title">Security</span>
+        </a>
+      </main>
+
+      <footer class="foot">
+        <div>
+          <p class="foot-label">Version</p>
+          <p><span id="year"></span> © Edition</p>
+        </div>
+        <div>
+          <p class="foot-label">Local time</p>
+          <p id="clock">--:--</p>
+        </div>
+        <div>
+          <p class="foot-label">Socials</p>
+          <p class="foot-socials">
+            <a href="https://t.me/RusCreat" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://github.com/yurchik228336" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <button type="button" id="open-term">sh</button>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <aside class="term" id="term" hidden>
+      <div class="term-bar">
+        <span>sh</span>
+        <button type="button" id="term-close" aria-label="Закрыть">x</button>
+      </div>
+      <div class="term-out" id="term-out" role="log" aria-live="polite"></div>
+      <label class="term-in">
+        <span>$</span>
+        <input id="term-input" type="text" autocomplete="off" spellcheck="false" placeholder="help" />
+      </label>
+    </aside>
+
+    <script type="module" src="/src/work.ts"></script>
+  </body>
+</html>

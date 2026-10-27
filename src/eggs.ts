@@ -28,7 +28,7 @@ export function wireEasterEggs(term: Term): void {
     document.body.classList.toggle("is-egg", egg);
     term.open();
     term.print(egg ? `signal on via ${reason}` : "signal off", "ok");
-    if (hint) hint.textContent = egg ? "signal mode" : "logo x7 · ctrl+`";
+    if (hint) hint.textContent = egg ? "signal mode" : "";
   };
 
   brand?.addEventListener("click", () => {
