@@ -6,7 +6,7 @@
     <title>RusCreat · BRICK</title>
     <meta
       name="description"
-      content="RusCreat, студия BRICK. Игровые системы Minecraft на Java: учебные уроки, королевства, плагины. Участие в bug bounty без закрытых отчётов."
+      content="RusCreat. AppSec и bug bounty: контроль доступа в веб и API. Студия BRICK — серверные системы Minecraft."
     />
     <meta name="theme-color" content="#0c0c0c" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
@@ -30,10 +30,10 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@500&family=Noto+Sans+JP:wght@500&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="./assets/main-D-K23HoN.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/ui-CPGc5twX.js">
+    <script type="module" crossorigin src="./assets/main-CIw3tet-.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/ui-C3LPbE4W.js">
     <link rel="stylesheet" crossorigin href="./assets/ui-Cv-_1cev.css">
-      <link rel="modulepreload" crossorigin media="(min-width: 861px)" href="./assets/laptop-Bqtd6pvB.js">
+      <link rel="modulepreload" crossorigin media="(min-width: 861px)" href="./assets/laptop-DhKGjLK1.js">
   </head>
   <body class="is-loading">
     <div class="loading-container" id="loader" aria-hidden="true">
@@ -54,17 +54,14 @@
 
     <div class="work-float" id="work-float" aria-hidden="true">
       <div class="work-float-inner" id="work-float-inner">
-        <div class="preview preview-java" data-preview="0">
-          <span>Purpur</span><span>NPC</span><span>Typewriter</span>
+        <div class="preview preview-hunt" data-preview="0">
+          <span>BAC</span><span>Scope</span><span>Triage</span>
         </div>
         <div class="preview preview-ops" data-preview="1">
-          <span>Town</span><span>PDC</span><span>Race</span>
+          <span>Kingdom</span><span>Race</span><span>Chunks</span>
         </div>
         <div class="preview preview-reports" data-preview="2">
           <span>OSM</span><span>VSDX</span><span>DXF</span>
-        </div>
-        <div class="preview preview-hunt" data-preview="3">
-          <span>Scope</span><span>Triage</span><span>Report</span>
         </div>
       </div>
     </div>
@@ -86,10 +83,10 @@
           </div>
 
           <div class="hero-side once-in">
-            <p class="eyebrow">BRICK · Minecraft</p>
+            <p class="eyebrow">AppSec · Bug bounty</p>
             <p class="role">
-              Собираю игровые системы<br />
-              для серверов Minecraft.
+              Ищу сломанный<br />
+              контроль доступа.
             </p>
             <p class="hero-badge">
               <span class="dot"></span>
@@ -109,9 +106,10 @@
 
         <section class="intro">
           <p class="intro-text reveal">
-            Делаю плагины и моды, которые можно пройти в живом мире: учебный урок,
-            королевство, ресурсы, меню. Правила и краевые случаи задаю сам, сборку
-            проверяю на сервере. Реализацию на Java веду вместе с AI-агентами.
+            Bug bounty на Standoff 365 и BugBounty.ru. Разбираю, кто к какому объекту
+            имеет доступ, проверяю это своими аккаунтами и отдаю отчёт, который можно
+            повторить. Рядом — студия BRICK: серверные системы, где владение и права
+            устроены так же жёстко.
           </p>
           <a class="about-link reveal magnetic" href="#about">Обо мне</a>
         </section>
@@ -120,15 +118,15 @@
           <p class="section-label reveal">Проекты</p>
           <ul class="work-list" id="work-list">
             <li class="work-item reveal">
-              <a class="work-link" href="./work/lessons.html" data-index="0">
-                <span class="work-title">Lessons</span>
-                <span class="work-meta">Учебные миры · Purpur · Typewriter</span>
+              <a class="work-link" href="./work/security.html" data-index="0">
+                <span class="work-title">Security</span>
+                <span class="work-meta">Broken access control · Standoff · BugBounty.ru</span>
               </a>
             </li>
             <li class="work-item reveal">
               <a class="work-link" href="./work/kingdoms.html" data-index="1">
                 <span class="work-title">Kingdoms</span>
-                <span class="work-meta">Королевства, расы, ресурсы чанков</span>
+                <span class="work-meta">Владение, расы, ресурсы чанков</span>
               </a>
             </li>
             <li class="work-item reveal">
@@ -137,41 +135,36 @@
                 <span class="work-meta">Схема участка · сайт в разработке</span>
               </a>
             </li>
-            <li class="work-item reveal">
-              <a class="work-link" href="./work/security.html" data-index="3">
-                <span class="work-title">Security</span>
-                <span class="work-meta">Bug bounty · скоуп и триаж</span>
-              </a>
-            </li>
           </ul>
         </section>
 
-        <section class="band" id="practice">
-          <h2 class="reveal">Minecraft</h2>
+        <section class="band" id="systems">
+          <h2 class="reveal">Системы</h2>
           <p class="reveal">
-            Ниже три поломки, которые я заметил в игре сам. Строку с причиной в коде
-            после этого находил разбор, не я.
+            На Minecraft это не набор команд, а три связанные системы. Они стояли
+            на одном сервере Purpur и читали состояние друг друга.
           </p>
           <ul class="plain-list">
             <li class="reveal">
-              <h3>Счётчик овец</h3>
+              <h3>Королевства</h3>
               <p>
-                После каждой овцы квест показывал 1/1, затем 2/2: будто он уже завершён.
-                Симптом я описал с сервера. Причину в чтении счётчика нашёл разбор кода.
+                Территория, членство, ратуша. Приглашение и передача главы проходят
+                только с подтверждением. Коллектор защищён так же, как ратуша:
+                чужой игрок не забирает его вместе с ресурсом.
               </p>
             </li>
             <li class="reveal">
-              <h3>Вагонетки на границе чанка</h3>
+              <h3>Расы</h3>
               <p>
-                Вагонетки пропадали только при переезде между чанками. Диспенсер я проверил
-                отдельно: лимит был на чанк, а не на весь мир.
+                Набор рас с зависимыми атрибутами и общим меню. Клик есть только
+                там, где лежит предмет. Раса меняет бой, а не табличку в чате.
               </p>
             </li>
             <li class="reveal">
-              <h3>Динамит после рестарта</h3>
+              <h3>Ресурсы чанков</h3>
               <p>
-                Кастомный динамит становился обычным. Хранение в файле я отклонил:
-                данные должны лежать в Persistent Data Container чанка.
+                Ресурс восстанавливается только в чанках с коллектором. Список этих
+                чанков приходит из плагина королевств, а не из отдельной карты.
               </p>
             </li>
           </ul>
@@ -184,8 +177,8 @@
             через каналы ниже.
           </p>
           <p class="reveal">
-            Беру задачи на игровую систему: плагин, мод, урок, меню, связка с другим
-            плагином. Объём и срок — в переписке.
+            Беру серверную систему целиком: владение, роли, связка плагинов, приёмка
+            на живом сервере. Объём и срок — в переписке.
           </p>
           <div class="link-rows reveal">
             <a href="https://t.me/brickstu" target="_blank" rel="noopener noreferrer">telegram/@brickstu</a>
@@ -199,19 +192,18 @@
             <h2 class="reveal">About</h2>
             <div class="about-copy">
               <p class="reveal">
-                Меня зовут RusCreat. Собираю игровые системы на Java для Paper, Purpur
-                и Fabric и довожу их до состояния, которое можно проверить в мире.
+                Меня зовут RusCreat. Основная работа — контроль доступа: веб, API
+                и программы bug bounty на Standoff 365 и BugBounty.ru.
               </p>
               <p class="reveal">
-                Код плагинов и модов я веду вместе с AI-агентами. Моя часть — правило,
-                крайний случай и приёмка на сервере.
+                В отчёте мне нужно повторяемое влияние на чужой объект или роль.
+                Информативный ответ и дубликат остаются отдельными статусами.
+                Закрытые детали программ на сайт не выношу.
               </p>
               <p class="reveal">
-                На серверах стояли Java, Paper/Purpur API, Fabric, Gradle, Maven,
-                Typewriter и Git.
-              </p>
-              <p class="reveal">
-                Параллельно участвую в bug bounty на Standoff 365 и BugBounty.ru.
+                Вторая линия — Java на Paper и Purpur: королевства, расы и ресурсы
+                чанков под студией BRICK. Правила доступа в этих системах задаю я.
+                Реализацию веду вместе с AI-агентами.
               </p>
             </div>
           </div>
