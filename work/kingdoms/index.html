@@ -17,9 +17,9 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@500&family=Noto+Sans+JP:wght@500&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="../../assets/ui-CREgUNcY.js"></script>
-    <script type="module" crossorigin src="../../assets/work-26lgWGKz.js"></script>
-    <link rel="stylesheet" crossorigin href="../../assets/ui-uHqLaHWU.css">
+    <script type="module" crossorigin src="../../assets/ui-B76eElpC.js"></script>
+    <script type="module" crossorigin src="../../assets/work-BAFm1S3l.js"></script>
+    <link rel="stylesheet" crossorigin href="../../assets/ui-BD8ijyB8.css">
       <link rel="modulepreload" crossorigin media="(min-width: 861px)" href="./assets/laptop-DmcvRdOs.js">
   </head>
   <body class="is-loading case-page">
@@ -66,18 +66,40 @@
         </div>
 
         <section class="case-body">
+          <h3 class="reveal">Королевства</h3>
           <p class="reveal">
-            Сервер королевств. Земля, состав и&nbsp;ратуша принадлежат королевству.
-            Список чанков тоже его: ресурс возвращается только в&nbsp;чанке, где стоит коллектор.
+            Земля считается чанками, не радиусом. У&nbsp;королевства свой список чанков, состав и&nbsp;ратуша.
+            Ратуша ставится предметом и&nbsp;собирается схемой по&nbsp;центру. Меню ратуши открывается сундуком.
+            Приглашение и&nbsp;передача главы включаются только после подтверждения второй стороны.
           </p>
+          <h3 class="reveal">Границы</h3>
           <p class="reveal">
-            Вход в&nbsp;королевство и&nbsp;передача главы включаются после подтверждения второй стороны.
-            Коллектор закрыт той же защитой, что ратуша. Расы отдельно от&nbsp;земли:
-            их атрибуты связаны и&nbsp;меняют бой.
+            Граница рисуется цветом королевства. По&nbsp;присяду она видна 5&nbsp;секунд.
+            Флаг берётся по&nbsp;соседству и&nbsp;по&nbsp;окружению. В&nbsp;чужом чанке добыча оставляет треснувший блок.
           </p>
+          <h3 class="reveal">Ресурсы</h3>
           <p class="reveal">
-            Состояние, которое должно остаться после рестарта, записано в&nbsp;PDC чанка, на&nbsp;самом мире.
-            Плагины сервер читает из&nbsp;одной папки.
+            Ресурсы чанка виртуальные и&nbsp;дефицитные. Они возвращаются только в&nbsp;чанке с&nbsp;коллектором
+            и&nbsp;только по&nbsp;списку королевства. Второй карты нет. Коллектор закрыт той же защитой, что ратуша,
+            а&nbsp;крафт коллектора есть у&nbsp;гномов. Два игрока в&nbsp;меню одного коллектора видят одно состояние,
+            поэтому ресурс не&nbsp;двоится.
+          </p>
+          <h3 class="reveal">Хозяйство</h3>
+          <p class="reveal">
+            У&nbsp;королевства склад, мулы, кузница и&nbsp;альянсы. Экономика подключена через Vault.
+          </p>
+          <h3 class="reveal">Расы</h3>
+          <p class="reveal">
+            Семь рас, и&nbsp;атрибуты зависят друг от&nbsp;друга: дворфы, гномы, люди, эльфы, древние, орки, наги.
+            Модификаторы для этого не&nbsp;используются. Незера и&nbsp;Края нет. Первый вход идёт через лимбо,
+            расу выбирают командой. Орки бьют дальше и&nbsp;задевают корпусом. Бой держится на&nbsp;том,
+            что расы нужны друг другу.
+          </p>
+          <h3 class="reveal">Данные</h3>
+          <p class="reveal">
+            Состав и&nbsp;постройки королевства пишутся в&nbsp;SQLite. Состояние чанка лежит в&nbsp;PDC
+            и&nbsp;остаётся на&nbsp;месте после рестарта. Королевства, расы и&nbsp;ресурсы поднимает один загрузчик
+            из&nbsp;своей папки.
           </p>
         </section>
 
